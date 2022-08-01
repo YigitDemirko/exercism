@@ -4,13 +4,13 @@
 //
 
 export const hey = (message) => {
-  if(!message.trim()) return 'Fine. Be that way!'
-  const isCaps = /[A-Z]/.test(message.trim()) && !/[a-z]/.test(message.trim())
-  const isQuestion = /\?$/.test(message.trim());
-
-  if(isQuestion && isCaps) return "Calm down, I know what I'm doing!"
-  if(!isQuestion && isCaps) return "Whoa, chill out!"
-  if(isQuestion && isCaps) return  "Sure."
-
+  if (!message.trim()) return 'Fine. Be that way!'
+  const isAllCaps = /[A-Z]/.test(message) && !/[a-z]/.test(message)
+  const isQuestion = /\?$/.test(message.trim())
+  
+  if (isAllCaps && isQuestion) return 'Calm down, I know what I\'m doing!'
+  if (isAllCaps && !isQuestion) return 'Whoa, chill out!'
+  if (!isAllCaps && isQuestion) return 'Sure.'
+    
   return 'Whatever.'
 }
